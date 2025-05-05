@@ -6,25 +6,46 @@
     <!-- Bootstrap CSS CDN -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <title>Nome da Empresa</title>
 </head>
 <body>
 
 <script>
-    document.querySelector('.seta.esquerda').addEventListener('click', function() {
-        document.querySelector('.clientes-tabela').style.transform = 'translateX(100px)';
+    document.addEventListener('DOMContentLoaded', () => {
+        const sobreOverlay = document.querySelector('.sobre-nos-overlay');
+        const sobreSection = document.querySelector('.sobre-nos-section');
+
+        if (sobreOverlay && sobreSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        sobreSection.classList.add('aparecer'); // Adiciona a classe 'aparecer' à seção
+                    }
+                });
+            }, {
+                threshold: 0.4 // Ajuste conforme necessário
+            });
+
+            observer.observe(sobreOverlay);
+        }
     });
 
-    document.querySelector('.seta.direita').addEventListener('click', function() {
-        document.querySelector('.clientes-tabela').style.transform = 'translateX(-100px)';
-    });
+
+        document.querySelector('.seta.esquerda').addEventListener('click', function() {
+                document.querySelector('.clientes-tabela').style.transform = 'translateX(100px)';
+            });
+
+            document.querySelector('.seta.direita').addEventListener('click', function() {
+                document.querySelector('.clientes-tabela').style.transform = 'translateX(-100px)';
+            });
 </script>
 
 <!-- HEADER -->
 <header>
-    <div class="logo-container" style="display: flex; align-items: center; gap: 10px;">
-        <img src="/imgs/logo.png" alt="Logo Empresa" class="logo" style="height: 60px;">
+    <div class="logo-container" style="display: flex; gap: 10px;">
+        <img src="/imgs/logo.jpeg" alt="Logo Empresa" class="logo" style="height: 100px;">
         <div class="company-name-text">Nome da Empresa</div>
     </div>
     <nav>
@@ -37,6 +58,17 @@
 
     <button class="btn btn-primary">FAÇA UM ORÇAMENTO</button>
 </header>
+
+<hr class="divisor">
+<!-- SEÇÃO SOBRE A EMPRESA -->
+<section class="container my-5 sobre-nos-section">
+    <h1 class="text-aboutme">Sobre Nós</h1>
+    <div class="sobre-nos-overlay">
+        <p class="sobre-empresa">
+            Texto base sobre empresa e sua trajetória
+        </p>
+    </div>
+</section>
 
 <hr class="divisor">
 <!-- SEÇÃO TRABALHOS CONCLUÍDOS -->
@@ -82,17 +114,6 @@
     </div>
 </section>
 <hr class="divisor">
-
-<!-- SEÇÃO SOBRE A EMPRESA -->
-<section class="container my-5">
-    <h1 class="text-aboutme">Sobre Nós</h1>
-    <div class="sobre-box">
-    <p class="sobre-empresa">
-        Texto base sobre empresa e sua trajetoria
-    </p>
-    </div>
-</section>
-
 
 <hr class="divisor">
 <!-- SEÇÃO EM ANDAMENTO -->
@@ -144,7 +165,7 @@
                 <p class="text-center">SIT</p>
             </div>
             <div class="carousel-item">
-                <img src="static/img/logo5.png" class="d-block mx-auto" style="height: 50px;" alt="Logo 5">
+                <img src="static/imgs/whatsapp_icon.png" class="d-block mx-auto" style="height: 50px;" alt="Logo 5">
                 <p class="text-center">AMET</p>
             </div>
         </div>
@@ -159,17 +180,44 @@
 
 <!-- SEÇÃO ORÇAMENTO -->
 <section class="container my-5">
-    <div class="alert alert-primary text-center">
+    <div class="alert alert-custom text-center">
         <h3>Peça um orçamento</h3>
         <p>Entre em contato conosco e solicite um orçamento pelo WhatsApp.</p>
-        <button class="btn btn-primary">FAÇA UM ORÇAMENTO</button>
+        <div class="whatsapp-container">
+            <a href="https://wa.me/seunumerodetelefone" target="_blank">
+                <img src="/imgs/whatsapp_icon.png" alt="WhatsApp" class="whatsapp-icon">
+            </a>
+        </div>
     </div>
 </section>
 
+
+
 <!-- RODAPÉ -->
-<footer class="bg-dark text-white text-center p-3">
-    <p>&copy; 2025 Nome da Empresa. Todos os direitos reservados.</p>
+<footer class="footer-custom bg-dark text-white pt-4 pb-3 mt-auto">
+    <div class="container">
+        <div class="row">
+            <!-- Endereço -->
+            <div class="col-md-6 mb-3">
+                <h5>Endereço</h5>
+                <p>Rua Exemplo, 123<br>Centro, Cidade - UF<br>CEP 00000-000</p>
+            </div>
+
+            <!-- Redes Sociais -->
+            <div class="col-md-6 mb-3 text-md-end">
+                <h5>Redes Sociais</h5>
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-whatsapp fa-lg"></i></a>
+            </div>
+        </div>
+
+        <hr style="border-color: rgba(255,255,255,0.1);">
+        <p class="direitos">&copy; 2025 Nome da Empresa. Todos os direitos reservados.</p>
+    </div>
 </footer>
+
 
 <!-- Bootstrap JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

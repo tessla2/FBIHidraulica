@@ -19,6 +19,7 @@ header {
 }
 
 .logo-container {
+  margin-left: 25px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -26,6 +27,7 @@ header {
 
 .company-name-text {
   font-family: 'Montserrat', sans-serif;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6); /* sombra no texto */
   font-weight: 300;
   font-size: 35px;
   color: #343a40;
@@ -39,17 +41,20 @@ header {
   margin: 2px 0;
 }
 
+nav {
+  margin-left: auto; /* empurra nav para a direita */
+}
 .nav {
+  /*text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);*/
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .nav-item {
-  margin: 0 25px;
+  margin: 20px 25px;
 }
 
 .nav-link {
@@ -58,19 +63,23 @@ header {
   font-size: 17px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  color: #343a40;
+  color: #007bff;
   text-decoration: none;
   transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: #007bff;
-  border-bottom: 2px solid #007bff;
+  color: #343a40;
+  border-bottom: 2px solid #343a40;
 }
 
 button {
-  background-color: #1565c0;
+  background-color: #007cc6;
+  gap: 5px;
+  margin-right: 40px;
+  width: 20px
+  height: 40px;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -92,42 +101,71 @@ h2 {
   font-size: 30px;
   font-weight: 600;
 }
-section .text-aboutme {
-  font-size: 28px;
-  font-weight: 700;
-  color: #2c3e50;
-  margin-bottom: 20px;
-  font-family: 'Montserrat', sans-serif;
+
+.text-aboutme {
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  color: #ffffff;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6); /* sombra no texto */
+  position: absolute;
+  top: 20%; /* ajustável */
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.sobre-empresa {
-  font-size: 16px;
-  color: #444;
-  line-height: 1.8;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: justify;
-  padding: 0 15px;
+.sobre-nos-section {
+  background-image: url('/imgs/imagem-fundo2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 12px;
+  width: 100vw; /* Faz a largura ocupar toda a tela */
+  height: 70vh; /* Ajuste a altura conforme necessário */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: transform 0.5s ease-in-out; /* Transição suave para o efeito de zoom */
+  overflow: hidden; /* Garante que o zoom não transborde */
 }
-.sobre-box {
-  background-color: #a5d2dc;
-  border: 2px solid #ddd;
+
+.sobre-nos-section:hover {
+  transform: scale(1.1); /* Efeito de zoom */
+}
+
+.sobre-nos-overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Cor da sobreposição */
   border-radius: 16px;
-  padding: 30px;
-  margin: 0 auto;
-  max-width: 900px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease-in-out;
+  max-width: 1000px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(4px);
+  transition: all 0.8s ease;
+  position: absolute; /* Garante que a sobreposição fique acima da imagem */
+  z-index: 1; /* Para garantir que o overlay sobreponha a imagem */
 }
 
-.sobre-box:hover {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  border-color: #bbb;
-  background-color: #ffffff;
+.sobre-nos-section.aparecer .sobre-nos-overlay {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
 }
 
+.sobre-nos-titulo {
+  font-size: 36px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
 
+.sobre-nos-texto {
+  font-size: 17px;
+  line-height: 1.8;
+  font-family: Arial, sans-serif;
+}
 
 
 .card {
@@ -168,12 +206,122 @@ section .text-aboutme {
   line-height: 1.6;
 }
 
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: rgba(0, 0, 0, 0.9); /* botão escuro transparente */
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
 
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(0, 123, 255, 0.9);
+}
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
 
-footer {
-  text-align: center;
-  margin-top: 40px;
-  color: #777;
-  font-size: 14px;
+/* Seta esquerda */
+.carousel-control-prev-icon {
+  border-width: 8px 10px 8px 0;
+  border-color: transparent #fff transparent transparent;
+  margin-left: 12px;
+}
+
+/* Seta direita */
+.carousel-control-next-icon {
+  border-width: 8px 0 8px 10px;
+  border-color: transparent transparent transparent #fff;
+  margin-right: 12px;
+}
+
+/* Estilo da seção de orçamento */
+.alert-custom {
+    background-color: #343a40; /* Fundo escuro, similar à sua página */
+    color: #f8f9fa; /* Texto branco */
+    border-radius: 16px; /* Bordas arredondadas */
+    padding: 30px 20px; /* Padding mais confortável */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.alert-custom h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.alert-custom p {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.whatsapp-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Espaço entre a imagem e o botão */
+}
+
+.whatsapp-icon {
+    width: 100px; /* Tamanho adequado para o ícone */
+    height: 60px;
+    object-fit: contain;
+}
+
+.btn-whatsapp:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+html, body {
+  height: 100%;
+  weight: 100%
+  display: flex;
+  flex-direction: column;
+}
+
+body > footer {
+  margin-top: auto;
+}
+
+.footer-custom {
+  border-radius: 16px;
+  background-color: #212529; /* cor escura consistente com seu site */
+  color: #f8f9fa;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.footer-custom h5 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+}
+
+.footer-custom a {
+  text-decoration: none;
+  color: #f8f9fa;
+  transition: color 0.3s ease;
+}
+
+.footer-custom a:hover {
+  color: #007bff;
+}
+
+.direitos{
+ color: #6c757d;
+
 }
