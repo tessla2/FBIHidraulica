@@ -52,55 +52,50 @@ header {
 
 nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  margin-right: 30px; /* Ajuste o espaço à direita */
-}
-.nav {
-  display: flex;
-  justify-content: flex-end;
-  list-style: none;
-  margin: 0;
-}
-.nav-item {
-  margin: 0 12px;
-  padding: 0px 20px;
-  border: 2px solid #dee2e6; /* Borda cinza clara */
-  border-radius: 8px;
-  background-color: #1e6a85;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Sombra leve */
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  padding: 12px 24px;
+  background-color: #f2f2f2; /* Cinza claro */
+  border-radius: 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra leve */
 }
 
-.nav-item:hover {
-  background-color: #fff; /* Fundo cinza muito claro no hover */
-  transform: translateY(-2px);
+.nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 0 12px;
 }
 
 .nav-link {
-  font-size: 17px;
+  font-size: 16px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  color: #fff; /* Cor escura padrão */
+  font-weight: 500;
+  color: #555; /* Cinza escuro */
   text-decoration: none;
-  padding: 8px 0;
+  padding: 8px 12px;
   transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: #f39c12; /* Laranja suave */
+  color: #f39c12; /* Laranja no hover */
   border-bottom: 2px solid #f39c12;
 }
 
 
+
 button.btn-primary {
-  background-color: #36393b!important;
+  background-color: #f39c12;!important;
   margin-right: 20px;
   color: #ffffff!important; /* Cor do texto branca */
   border: none;
   padding: 9px 15px;
-  border-radius: 5px;
+  border-radius: 32px;
   font-weight: 600;
   transition: background-color 0.3s ease;
 }
