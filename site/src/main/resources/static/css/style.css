@@ -1,38 +1,47 @@
 * {
   box-sizing: border-box;
+    margin: 0; /* Remove margens globais */
 }
 
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
+  margin-top: 60px;
   padding: 20px;
-  background-color: #fff;
+  background-color: #6c757d0f;
   color: #2c2c2c;
 }
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  background-color: #ffffff;
-  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 2px;
+  width: 100%; /* O header ocupa toda a largura da tela */
+  height: 98px; /* Altura do header */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  position: fixed; /* Mantém o header fixo no topo */
+  top: 0; /* Fixa o header no topo da página */
+  left: 0; /* Fixa o header ao lado esquerdo */
+  z-index: 1000;
 }
 
 .logo-container {
-  margin-left: 25px;
   display: flex;
+  margin-top: 7px;
+  margin-left: 17px;
   align-items: center;
   gap: 12px;
+  margin-right: auto; /* Ajuste do espaço à esquerda */
 }
 
 .company-name-text {
   font-family: 'Montserrat', sans-serif;
-  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6); /* sombra no texto */
   font-weight: 300;
   font-size: 35px;
-  color: #343a40;
-  margin: auto;
-  padding-bottom: 0;
+  color: #32383f;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave no texto */
+  margin: 0; /* Remover margin para alinhar melhor */
 }
 
 .divisor {
@@ -42,55 +51,65 @@ header {
 }
 
 nav {
-  margin-left: auto; /* empurra nav para a direita */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 30px; /* Ajuste o espaço à direita */
 }
 .nav {
-  /*text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);*/
   display: flex;
   justify-content: flex-end;
   list-style: none;
   margin: 0;
-  padding: 0;
+}
+.nav-item {
+  margin: 0 12px;
+  padding: 0px 20px;
+  border: 2px solid #dee2e6; /* Borda cinza clara */
+  border-radius: 8px;
+  background-color: #1e6a85;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Sombra leve */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.nav-item {
-  margin: 20px 25px;
+.nav-item:hover {
+  background-color: #fff; /* Fundo cinza muito claro no hover */
+  transform: translateY(-2px);
 }
 
 .nav-link {
-  display: inline-block;
-  padding: 10px 0;
   font-size: 17px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  color: #007bff;
+  font-weight: 400;
+  color: #fff; /* Cor escura padrão */
   text-decoration: none;
+  padding: 8px 0;
   transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: #343a40;
-  border-bottom: 2px solid #343a40;
+  color: #f39c12; /* Laranja suave */
+  border-bottom: 2px solid #f39c12;
 }
 
-button {
-  background-color: #007cc6;
-  gap: 5px;
-  margin-right: 40px;
-  width: 20px
-  height: 40px;
-  color: #ffffff;
+
+button.btn-primary {
+  background-color: #36393b!important;
+  margin-right: 20px;
+  color: #ffffff!important; /* Cor do texto branca */
   border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
+  padding: 9px 15px;
+  border-radius: 5px;
   font-weight: 600;
-  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #0d47a1;
+button.btn-primary:hover {
+  background-color: #1a3a40 !important; /* Azul escuro elegante para contraste */
+  color: #fff !important;            /* Texto laranja para manter o destaque */
+  transform: translateY(-2px);         /* Leve efeito de elevação */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave ao passar o mouse */
 }
 
 h2 {
@@ -113,39 +132,56 @@ h2 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .sobre-nos-section {
-  background-image: url('/imgs/imagem-fundo2.jpg');
+  background-image: url('/imgs/imagem-fundo3.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
-  border-radius: 12px;
-  width: 100vw; /* Faz a largura ocupar toda a tela */
-  height: 70vh; /* Ajuste a altura conforme necessário */
+  border-radius: 16px;
+  width: 100%;
+  height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  transition: transform 0.5s ease-in-out; /* Transição suave para o efeito de zoom */
-  overflow: hidden; /* Garante que o zoom não transborde */
+  overflow: hidden;
 }
 
+.sobre-nos-section.container {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+}
+
+
 .sobre-nos-section:hover {
-  transform: scale(1.1); /* Efeito de zoom */
+  transform: scale(1.02); /* Efeito de zoom */
 }
 
 .sobre-nos-overlay {
-  background-color: rgba(0, 0, 0, 0.5); /* Cor da sobreposição */
+  rgb(0 58 71 / 25%); /* Azul escuro elegante */
+  padding: 40px 30px;
   border-radius: 16px;
-  max-width: 1000px;
+  max-width: 800px;
+  width: 100%;
   text-align: center;
-  opacity: 0;
-  transform: translateY(30px);
-  filter: blur(4px);
-  transition: all 0.8s ease;
-  position: absolute; /* Garante que a sobreposição fique acima da imagem */
-  z-index: 1; /* Para garantir que o overlay sobreponha a imagem */
+  color: #d1ecff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.sobre-nos-overlay h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #00d4ff;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.sobre-nos-overlay p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
 }
 
 .sobre-nos-section.aparecer .sobre-nos-overlay {
@@ -290,7 +326,7 @@ h2 {
 
 html, body {
   height: 100%;
-  weight: 100%
+  width: 100%
   display: flex;
   flex-direction: column;
 }

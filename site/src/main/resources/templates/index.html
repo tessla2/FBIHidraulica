@@ -40,26 +40,37 @@
             document.querySelector('.seta.direita').addEventListener('click', function() {
                 document.querySelector('.clientes-tabela').style.transform = 'translateX(-100px)';
             });
+
+    //rolagem suave
+    document.getElementById("logo").addEventListener("click", function(event) {
+  event.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
 </script>
 
 <!-- HEADER -->
 <header>
     <div class="logo-container" style="display: flex; gap: 10px;">
-        <img src="/imgs/logo.jpeg" alt="Logo Empresa" class="logo" style="height: 100px;">
+        <a href="#top">
+        <img src="/imgs/logo.png" alt="Logo Empresa" class="logo" style="height: 115px; width: 120px;"></a>
         <div class="company-name-text">Nome da Empresa</div>
     </div>
     <nav>
         <ul class="nav">
-            <li class="nav-item"><a href="#" class="nav-link">Concluídos</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Projetos</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Clientes</a></li>
+            <li class="nav-item"><a href="#concluidos" class="nav-link">Concluídos</a></li>
+            <li class="nav-item"><a href="#andamento" class="nav-link">Em Andamento</a></li>
+            <li class="nav-item"><a href="#clientes" class="nav-link">Clientes</a></li>
         </ul>
     </nav>
 
+    <a href="#orcamento">
     <button class="btn btn-primary">FAÇA UM ORÇAMENTO</button>
+    </a>
 </header>
 
-<hr class="divisor">
 <!-- SEÇÃO SOBRE A EMPRESA -->
 <section class="container my-5 sobre-nos-section">
     <h1 class="text-aboutme">Sobre Nós</h1>
@@ -73,7 +84,7 @@
 <hr class="divisor">
 <!-- SEÇÃO TRABALHOS CONCLUÍDOS -->
 <section class="container my-5">
-    <h2 class="text">Trabalhos Concluídos</h2>
+    <h2 class="text" id="concluidos">Trabalhos Concluídos</h2>
     <div class="row g-4">
         <div class="col-md-3">
             <div class="card">
@@ -113,12 +124,11 @@
         </div>
     </div>
 </section>
-<hr class="divisor">
 
 <hr class="divisor">
 <!-- SEÇÃO EM ANDAMENTO -->
 <section class="container my-5">
-    <h2 class="text">Em Andamento</h2>
+    <h2 class="text"  id="andamento">Em Andamento</h2>
     <div class="row g-4">
         <div class="col-md-6">
             <div class="card">
@@ -144,7 +154,7 @@
 
 <hr class="divisor">
 <!-- SEÇÃO CLIENTES COM CARROSSEL -->
-<section class="container my-5">
+<section class="container my-5" id="clientes">
     <h2 class="text">Clientes</h2>
     <div id="carouselClientes" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -180,7 +190,7 @@
 
 <!-- SEÇÃO ORÇAMENTO -->
 <section class="container my-5">
-    <div class="alert alert-custom text-center">
+    <div class="alert alert-custom text-center" id="orcamento">
         <h3>Peça um orçamento</h3>
         <p>Entre em contato conosco e solicite um orçamento pelo WhatsApp.</p>
         <div class="whatsapp-container">
