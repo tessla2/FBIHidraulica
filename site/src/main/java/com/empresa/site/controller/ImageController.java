@@ -14,6 +14,26 @@ public class ImageController {
     @Autowired
     private ImageService imageService;
 
+
+    @GetMapping("/{nomeArquivo}")
+    public ResponseEntity<byte[]> getImagem(@PathVariable String nomeArquivo) {
+        return imageService.getImagemPorNome(nomeArquivo)
+                .map(imagem -> {
+                    String contentType = "image/jpeg"; // padrão
+                    if (nomeArquivo.toLowerCase().endsWith(".png")) {
+                        contentType = "image/png";
+                    } else if (nomeArquivo.toLowerCase().endsWith(".gif")) {
+                        contentType = "image/gif";
+                    }
+                    return ResponseEntity.ok()
+                            .header("Content-Type", contentType)
+                            .body(imagem.getDados());
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+
+
     @PostMapping("/upload")
     public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file) {
         try {

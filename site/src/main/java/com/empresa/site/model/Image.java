@@ -1,7 +1,6 @@
 package com.empresa.site.model;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -24,26 +23,41 @@ public class Image {
     @Column(name = "dados")
     private byte[] dados;
 
-    // getters e setters
+    // Getters e setters
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getNomeArquivo() {
+        return nomeArquivo;
+    }
 
     public void setNomeArquivo(String nomeArquivo) {
         this.nomeArquivo = nomeArquivo;
-    }
-
-    public void setCaminho() {
-        this.caminho = caminho;
     }
 
     public String getCaminho() {
         return caminho;
     }
 
-    public void setData(LocalDateTime bytes) {
-        this.data = data; // isso não faz sentido, precisa de um setter correto para data
+    public void setCaminho(String caminho) {
+        this.caminho = caminho;
     }
 
-    public void setDados(byte[] bytes) {
+    public LocalDateTime getData() {
+        return data;
+    }
+
+    public void setDataUpload(LocalDateTime data) {
+        this.data = data;
+    }
+
+    public byte[] getDados() {
+        return dados;
+    }
+
+    public void setDados(byte[] dados) {
         this.dados = dados;
     }
 }
