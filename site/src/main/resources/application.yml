@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: site
+  datasource:
+    url: jdbc:postgresql://localhost:5432/siteh
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+  web:
+    resources:
+      static-locations:
+        - classpath:/static/
+        - file:imgs/
